@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    <Button
+        android:id="@+id/btn_reopen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bg_btn_square"
+        android:text="@string/reopen"
+        android:textColor="@color/colorWhite" />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/btn_reopen"
+        android:layout_below="@id/toolbar">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBackground">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/ten_dp"
+                    app:layout_collapseMode="none">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_et"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="start"
+                            android:paddingStart="@dimen/five_dp"
+                            android:paddingTop="@dimen/five_dp"
+                            android:text="@string/title"
+                            android:textColor="@android:color/black" />
+
+                        <TextView
+                            android:id="@+id/tv_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="start"
+                            android:padding="@dimen/ten_dp"
+                            android:text="@string/note"
+                            android:textColor="@color/colorGrayDark" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/ten_dp"
+                        android:background="@drawable/bg_et"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="start"
+                            android:paddingStart="@dimen/five_dp"
+                            android:paddingTop="@dimen/five_dp"
+                            android:text="@string/note"
+                            android:textColor="@android:color/black"
+                            tools:ignore="RtlSymmetry" />
+
+                        <TextView
+                            android:id="@+id/tv_note"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="start"
+                            android:hint="@string/note"
+                            android:padding="@dimen/ten_dp"
+                            android:textColor="@color/colorGrayDark" />
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rltv_images"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="@dimen/ten_dp"
+                        android:background="@drawable/bg_et"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recycler_view_images"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true" />
+
+                        <ImageView
+                            android:id="@+id/iv_add_image"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:padding="@dimen/five_dp"
+                            android:src="@drawable/ic_add_circle_outline_black_18dp"
+                            android:visibility="gone"
+                            tools:ignore="ContentDescription" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="@dimen/ten_dp"
+                        android:background="@drawable/bg_et"
+                        android:padding="@dimen/ten_dp">
+
+                        <TextView
+                            android:id="@+id/tv_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:padding="@dimen/five_dp"
+                            android:text="@string/select_date"
+                            android:textColor="@android:color/black" />
+
+                        <TextView
+                            android:id="@+id/tv_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentEnd="true"
+                            android:gravity="center_vertical"
+                            android:padding="@dimen/five_dp"
+                            android:text="@string/select_time"
+                            android:textColor="@android:color/black"
+                            tools:ignore="RelativeOverlap" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rltv_repeat"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="@dimen/ten_dp"
+                        android:background="@drawable/bg_et"
+                        android:padding="@dimen/ten_dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:padding="@dimen/five_dp"
+                            android:text="@string/repeat"
+                            android:textColor="@android:color/black" />
+
+                        <TextView
+                            android:id="@+id/tv_repeat"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentEnd="true"
+                            android:drawablePadding="@dimen/five_dp"
+                            android:gravity="center_vertical"
+                            android:padding="@dimen/five_dp"
+                            android:text="@string/never"
+                            app:drawableLeftCompat="@drawable/ic_repeat_18"
+                            tools:ignore="RelativeOverlap" />
+                    </RelativeLayout>
+
+                    <RadioGroup
+                        android:id="@+id/radioGroupType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/ten_dp"
+                        android:background="@drawable/bg_et"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/ten_dp">
+
+                        <RadioButton
+                            android:id="@+id/radio_reminder"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/rbtn_selector"
+                            android:button="@null"
+                            android:checked="true"
+                            android:enabled="false"
+                            android:gravity="center"
+                            android:padding="8dp"
+                            android:text="@string/reminder"
+                            android:textColor="@drawable/rbtn_textcolor_selector"
+                            android:textSize="15sp" />
+
+                        <RadioButton
+                            android:id="@+id/radio_task"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/rbtn_selector"
+                            android:button="@null"
+                            android:enabled="false"
+                            android:gravity="center"
+                            android:padding="8dp"
+                            android:text="@string/task"
+                            android:textColor="@drawable/rbtn_textcolor_selector"
+                            android:textSize="15sp" />
+
+                    </RadioGroup>
+
+                    <RadioGroup
+                        android:id="@+id/radioGroup1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/ten_dp"
+                        android:background="@drawable/bg_et"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/ten_dp">
+
+                        <RadioButton
+                            android:id="@+id/radio_high"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/rbtn_selector"
+                            android:button="@null"
+                            android:checked="false"
+                            android:enabled="false"
+                            android:gravity="center"
+                            android:padding="8dp"
+                            android:text="@string/high"
+                            android:textColor="@drawable/rbtn_textcolor_selector"
+                            android:textSize="15sp" />
+
+                        <RadioButton
+                            android:id="@+id/radio_medium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/rbtn_selector"
+                            android:button="@null"
+                            android:checked="true"
+                            android:enabled="false"
+                            android:gravity="center"
+                            android:padding="8dp"
+                            android:text="@string/medium"
+                            android:textColor="@drawable/rbtn_textcolor_selector"
+                            android:textSize="15sp" />
+
+                        <RadioButton
+                            android:id="@+id/radio_low"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/rbtn_selector"
+                            android:button="@null"
+                            android:enabled="false"
+                            android:gravity="center"
+                            android:padding="8dp"
+                            android:text="@string/low"
+                            android:textColor="@drawable/rbtn_textcolor_selector"
+                            android:textSize="15sp" />
+
+                    </RadioGroup>
+
+                    <RelativeLayout
+                        android:id="@+id/rltv_assign_to"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="@dimen/ten_dp"
+                        android:background="@drawable/bg_et"
+                        android:padding="@dimen/ten_dp"
+                        android:visibility="visible">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:padding="@dimen/five_dp"
+                            android:text="@string/assigned_to"
+                            android:textColor="@android:color/black" />
+
+                        <TextView
+                            android:id="@+id/tv_assign_to"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentEnd="true"
+                            android:gravity="center_vertical"
+                            android:padding="@dimen/five_dp"
+                            android:text="@string/none"
+                            tools:ignore="RelativeOverlap" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rltv_assign_me_also"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="@dimen/ten_dp"
+                        android:background="@drawable/bg_et"
+                        android:padding="@dimen/ten_dp"
+                        android:visibility="visible">
+
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:id="@+id/checkbox_assign_me"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text="@string/assign_to_me_also"
+                            android:layoutDirection="rtl"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="@dimen/ten_dp"
+                        android:background="@drawable/bg_et"
+                        android:padding="@dimen/ten_dp"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:padding="@dimen/five_dp"
+                            android:text="@string/folloup_date_time"
+                            android:textColor="@android:color/black"
+                            tools:ignore="RelativeOverlap" />
+
+                        <TextView
+                            android:id="@+id/tv_folloup_date_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentEnd="true"
+                            android:gravity="center_vertical"
+                            android:padding="@dimen/five_dp"
+                            android:text="03 Dec 2022 01:00 PM" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+            <RelativeLayout
+                android:id="@+id/rltv_add_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/five_dp">
+
+                <TextView
+                    android:id="@+id/tv_add_comment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:drawablePadding="@dimen/five_dp"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/five_dp"
+                    android:text="@string/add_comment"
+                    android:textColor="@android:color/black"
+                    app:drawableLeftCompat="@drawable/ic_add_circle_outline_black_18dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@id/tv_add_comment"
+                    android:text="@string/comments"
+                    android:textColor="@color/colorPrimaryDark" />
+
+            </RelativeLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <RelativeLayout
+        android:id="@+id/rltv_img_preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:background="#BE000000"
+        android:visibility="gone">
+
+        <com.bogdwellers.pinchtozoom.view.ImageViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true" />
+
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:padding="@dimen/ten_five_dp"
+            android:src="@drawable/ic_close_white_24dp"
+            tools:ignore="ContentDescription" />
+
+    </RelativeLayout>
+</RelativeLayout>

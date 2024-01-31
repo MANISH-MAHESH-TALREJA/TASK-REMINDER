@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_margin="@dimen/five_dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="@dimen/five_dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_change_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:background="?attr/selectableItemBackground"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="25dp"
+                        android:paddingLeft="@dimen/ten_dp"
+                        android:paddingRight="@dimen/ten_dp"
+                        android:paddingTop="25dp"
+                        android:text="@string/change_password"
+                        android:textColor="@android:color/black" />
+
+                    <ImageView
+                        android:id="@+id/iv1"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="@dimen/five_dp"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:padding="@dimen/five_dp"
+                        android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
+                        android:visibility="visible"
+                        app:tint="@android:color/black" />
+
+                    <View
+                        android:layout_width="0.5dp"
+                        android:layout_height="50dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toStartOf="@id/iv1"
+                        android:background="@color/colorLine" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorLine" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_change_ringtone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:background="?attr/selectableItemBackground"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="25dp"
+                        android:paddingLeft="@dimen/ten_dp"
+                        android:paddingRight="@dimen/ten_dp"
+                        android:paddingTop="25dp"
+                        android:text="@string/notification_tone"
+                        android:textColor="@android:color/black" />
+
+                    <ImageView
+                        android:id="@+id/iv2"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="@dimen/five_dp"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:padding="@dimen/five_dp"
+                        android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
+                        android:visibility="visible"
+                        app:tint="@android:color/black" />
+
+                    <View
+                        android:layout_width="0.5dp"
+                        android:layout_height="50dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toStartOf="@id/iv2"
+                        android:background="@color/colorLine" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorLine" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv3"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="@dimen/five_dp"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:padding="@dimen/five_dp"
+                        android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
+                        android:visibility="visible"
+                        app:tint="@android:color/black" />
+
+                    <View
+                        android:id="@+id/view_line"
+                        android:layout_width="0.5dp"
+                        android:layout_height="50dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toStartOf="@id/iv3"
+                        android:background="@color/colorLine" />
+
+                    <TextView
+                        android:id="@+id/tv_change_snooze_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:background="?attr/selectableItemBackground"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="25dp"
+                        android:paddingLeft="@dimen/ten_dp"
+                        android:paddingRight="@dimen/ten_dp"
+                        android:paddingTop="25dp"
+                        android:text="@string/snooze_time"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/tv_snooze_digit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="22dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/ten_dp"
+                        android:layout_toStartOf="@id/view_line"
+                        android:background="@drawable/bg_login_view"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/five_dp"
+                        android:paddingRight="@dimen/five_dp"
+                        android:text="5 Min"
+                        android:textSize="@dimen/text_size_small" />
+                </RelativeLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

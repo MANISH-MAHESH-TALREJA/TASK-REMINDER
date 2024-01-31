@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lnr_root"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bg_et"
+        android:padding="@dimen/five_dp">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:paddingLeft="@dimen/five_dp"
+            android:paddingTop="@dimen/five_dp"
+            android:paddingRight="@dimen/five_dp"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:text="Name"
+            android:textColor="@color/colorPrimaryDark"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="11 Dec 2018 04:59 PM"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="11sp"
+            android:visibility="visible"
+            tools:ignore="HardcodedText" />
+
+
+        <TextView
+            android:id="@+id/tv_comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:paddingLeft="@dimen/five_dp"
+            android:paddingBottom="@dimen/five_dp"
+            android:paddingRight="@dimen/five_dp"
+            android:paddingTop="3dp"
+            android:text="Your todo task title here"
+            android:textColor="@android:color/black"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorLine" />
+</LinearLayout>

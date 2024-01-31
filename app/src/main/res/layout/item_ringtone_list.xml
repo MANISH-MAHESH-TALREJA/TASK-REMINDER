@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lnr_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_et"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorLine" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/five_dp"
+        android:paddingBottom="@dimen/five_dp">
+
+        <ImageView
+            android:id="@+id/iv_music_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/five_dp"
+            android:src="@drawable/ic_music_note_black_24dp"
+            app:tint="@color/colorPrimary"
+            tools:ignore="ContentDescription" />
+
+        <CheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="@dimen/five_dp"
+            android:layout_centerVertical="true"/>
+
+        <ImageView
+            android:id="@+id/iv_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@id/checkbox"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/five_dp"
+            android:src="@drawable/ic_play_arrow_black_24dp"
+            app:tint="@color/colorPrimary"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:padding="@dimen/ten_dp"
+            android:layout_toEndOf="@id/iv_music_icon"
+            android:layout_centerVertical="true"
+            android:text="Your notification name"
+            android:textColor="@android:color/black"
+            tools:ignore="HardcodedText" />
+    </RelativeLayout>
+</LinearLayout>

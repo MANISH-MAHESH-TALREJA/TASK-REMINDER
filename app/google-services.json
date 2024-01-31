@@ -1,0 +1,91 @@
+{
+  "project_info": {
+    "project_number": "301518112513",
+    "firebase_url": "https://my-task-reminder-alarm-default-rtdb.firebaseio.com",
+    "project_id": "my-task-reminder-alarm",
+    "storage_bucket": "my-task-reminder-alarm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:301518112513:android:57ff533f9df7397f937d00",
+        "android_client_info": {
+          "package_name": "net.manish.shopping"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "301518112513-ugn924pj3g4ja97ptd9ltf0ob0edq5j8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDA7QRASbQ28r7wElHPbbJAQo0XHPjgibE"
+        },
+        {
+          "current_key": "AIzaSyBeQvehTx2tDdKV-0K4zCV6QliNN0gkG00"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "301518112513-ugn924pj3g4ja97ptd9ltf0ob0edq5j8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:301518112513:android:39372869ce33fd9d937d00",
+        "android_client_info": {
+          "package_name": "net.manish.tasks"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "301518112513-8pnuai36ibjd9bugvrc62m11bq7b6og8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "net.manish.tasks",
+            "certificate_hash": "eadcdcf578a3e61cc4ad0b333c879c03de01baf5"
+          }
+        },
+        {
+          "client_id": "301518112513-e567fiaj2hacvm68oclsj1nn2djc5if4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "net.manish.tasks",
+            "certificate_hash": "20d54f1fea60f1c60c35e03f9e95f872b53b1a28"
+          }
+        },
+        {
+          "client_id": "301518112513-ugn924pj3g4ja97ptd9ltf0ob0edq5j8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDA7QRASbQ28r7wElHPbbJAQo0XHPjgibE"
+        },
+        {
+          "current_key": "AIzaSyBeQvehTx2tDdKV-0K4zCV6QliNN0gkG00"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "301518112513-ugn924pj3g4ja97ptd9ltf0ob0edq5j8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

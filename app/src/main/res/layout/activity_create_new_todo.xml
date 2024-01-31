@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    <Button
+        android:id="@+id/btn_create_todo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:text="@string/create"
+        android:textColor="@color/colorWhite" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btn_create_todo"
+        android:layout_below="@id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/ten_dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_et">
+
+                <LinearLayout
+                    android:id="@+id/lnr_lang"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/five_dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/five_dp"
+                        android:text="@string/current_speech_input_language"
+                        android:textColor="@color/colorGrayDark"
+                        android:textSize="12sp" />
+
+                    <View
+                        android:layout_width="@dimen/five_dp"
+                        android:layout_height="@dimen/five_dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="@dimen/five_dp"
+                        android:background="@drawable/bg_circle_filled" />
+
+                    <TextView
+                        android:id="@+id/tv_language"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/five_dp"
+                        android:text="@string/english"
+                        android:textColor="@android:color/black"
+                        android:textSize="12sp" />
+
+                    <View
+                        android:layout_width="@dimen/five_dp"
+                        android:layout_height="@dimen/five_dp"
+                        android:layout_gravity="center_vertical|center"
+                        android:layout_margin="@dimen/five_dp"
+                        android:background="@drawable/bg_circle_filled" />
+
+                    <TextView
+                        android:id="@+id/tv_change_input_language"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:padding="@dimen/five_dp"
+                        android:text="@string/change"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/iv_speak_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="@dimen/five_dp"
+                    android:src="@drawable/ic_keyboard_voice_black_24dp"
+                    app:tint="@color/colorPrimary"
+                    tools:ignore="ContentDescription" />
+
+                <EditText
+                    android:id="@+id/et_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/lnr_lang"
+                    android:layout_toStartOf="@id/iv_speak_title"
+                    android:background="#00000000"
+                    android:gravity="center_vertical"
+                    android:hint="@string/title"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:padding="@dimen/ten_dp"
+
+                    android:textColor="@color/colorGrayDark"
+                    android:importantForAutofill="no" />
+
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@id/iv_speak_title"
+                    android:background="@color/colorPrimary"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ten_dp"
+                android:background="@drawable/bg_et">
+
+                <ImageView
+                    android:id="@+id/iv_speak_note"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="@dimen/five_dp"
+                    android:src="@drawable/ic_keyboard_voice_black_24dp"
+                    app:tint="@color/colorPrimary"
+                    tools:ignore="ContentDescription" />
+
+                <EditText
+                    android:id="@+id/et_note"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_toStartOf="@id/iv_speak_note"
+                    android:background="#00000000"
+                    android:gravity="start"
+                    android:hint="@string/note"
+                    android:inputType="text"
+                    android:padding="@dimen/ten_dp"
+                    android:importantForAutofill="no"
+                    android:textColor="@color/colorGrayDark" />
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="60dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@id/iv_speak_note"
+                    android:background="@color/colorPrimary"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/lnr_images"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="@dimen/ten_dp"
+                android:background="@drawable/bg_et"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true" />
+
+                <ImageView
+                    android:id="@+id/iv_add_image"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:padding="@dimen/five_dp"
+                    android:src="@drawable/ic_add_circle_outline_black_18dp"
+                    android:visibility="gone"
+                    tools:ignore="ContentDescription" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="@dimen/ten_dp"
+                android:background="@drawable/bg_et"
+                android:padding="@dimen/ten_dp">
+
+                <TextView
+                    android:id="@+id/tv_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/five_dp"
+                    android:text="@string/select_date"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/tv_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/five_dp"
+                    android:text="@string/select_time"
+                    android:textColor="@android:color/black"
+                    tools:ignore="RelativeOverlap" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ten_dp"
+                android:background="@drawable/bg_et"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/rltv_repeat"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:padding="@dimen/ten_dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/five_dp"
+                        android:text="@string/repeat"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/tv_repeat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"
+                        android:drawablePadding="@dimen/five_dp"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/five_dp"
+                        android:text="@string/one_time"
+                        app:drawableLeftCompat="@drawable/ic_repeat_18"
+                        tools:ignore="RelativeOverlap" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rltv_select_day"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/ten_dp"
+                    android:paddingRight="@dimen/ten_dp"
+                    android:paddingBottom="@dimen/ten_dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/five_dp"
+                        android:text="@string/repeat_day"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/tv_day"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/five_dp"
+                        android:text="@string/select_day"
+                        tools:ignore="RelativeOverlap" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rltv_select_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/ten_dp"
+                    android:paddingRight="@dimen/ten_dp"
+                    android:paddingBottom="@dimen/ten_dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/five_dp"
+                        android:text="@string/repeat_date"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/tv_repeat_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/five_dp"
+                        android:text="@string/select_date"
+                        tools:ignore="RelativeOverlap" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <RadioGroup
+                android:id="@+id/radioGroupType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ten_dp"
+                android:background="@drawable/bg_et"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="@dimen/ten_dp">
+
+                <RadioButton
+                    android:id="@+id/radio_reminder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rbtn_selector"
+                    android:button="@null"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="@string/reminder"
+                    android:textColor="@drawable/rbtn_textcolor_selector"
+                    android:textSize="15sp" />
+
+                <RadioButton
+                    android:id="@+id/radio_task"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rbtn_selector"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="@string/task"
+                    android:textColor="@drawable/rbtn_textcolor_selector"
+                    android:textSize="15sp" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/radioGroup1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ten_dp"
+                android:background="@drawable/bg_et"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="@dimen/ten_dp"
+                android:visibility="gone">
+
+                <RadioButton
+                    android:id="@+id/radio_all"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rbtn_selector"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="@string/high"
+                    android:textColor="@drawable/rbtn_textcolor_selector"
+                    android:textSize="15sp" />
+
+                <RadioButton
+                    android:id="@+id/radio_success"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rbtn_selector"
+                    android:button="@null"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="@string/medium"
+                    android:textColor="@drawable/rbtn_textcolor_selector"
+                    android:textSize="15sp" />
+
+                <RadioButton
+                    android:id="@+id/radio_pending"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rbtn_selector"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="@string/low"
+                    android:textColor="@drawable/rbtn_textcolor_selector"
+                    android:textSize="15sp" />
+
+            </RadioGroup>
+
+            <RelativeLayout
+                android:id="@+id/rltv_assign_to"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="@dimen/ten_dp"
+                android:background="@drawable/bg_et"
+                android:padding="@dimen/ten_dp"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/five_dp"
+                    android:text="@string/assigned_to"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/tv_assign_to"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/five_dp"
+                    android:text="@string/none"
+                    tools:ignore="RelativeOverlap" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rltv_assign_me_also"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="@dimen/ten_dp"
+                android:background="@drawable/bg_et"
+                android:padding="@dimen/ten_dp"
+                android:visibility="gone">
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/checkbox_assign_me"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:layoutDirection="rtl"
+                    android:text="@string/assign_to_me_also" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="@dimen/ten_dp"
+                android:background="@drawable/bg_et"
+                android:padding="@dimen/ten_dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/five_dp"
+                    android:text="@string/folloup_date_time"
+                    android:textColor="@android:color/black"
+                    tools:ignore="RelativeOverlap" />
+
+                <TextView
+                    android:id="@+id/tv_folloup_date_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/five_dp"
+                    android:text="03 Dec 2018 01:00 PM" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

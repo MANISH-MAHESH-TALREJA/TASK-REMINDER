@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rltv_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite">
+
+    <RelativeLayout
+        android:id="@+id/rltv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="@dimen/ten_five_dp"
+            android:text="@string/set_snooze"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            tools:ignore="RelativeOverlap" />
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/ten_dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:padding="@dimen/five_dp"
+            android:src="@drawable/ic_close_black_24dp"
+            tools:ignore="ContentDescription" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/title"
+            android:background="@color/colorPrimaryDark" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rltv_title"
+        android:layout_marginTop="@dimen/ten_dp"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <RadioGroup
+            android:id="@+id/radio_group_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/ten_dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/radio_5min"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/five_dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rbtn_lang_selector"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:padding="@dimen/selectable_radio_btn_padding"
+                    android:text="@string/five_min"
+                    android:textColor="@drawable/rbtn_textcolor_selector"
+                    android:textSize="@dimen/selectable_radio_btn_text_size" />
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/radio_10min"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/five_dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rbtn_lang_selector"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:padding="@dimen/selectable_radio_btn_padding"
+                    android:text="@string/ten_min"
+                    android:textColor="@drawable/rbtn_textcolor_selector"
+                    android:textSize="@dimen/selectable_radio_btn_text_size" />
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/radio_15min"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/five_dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rbtn_lang_selector"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:padding="@dimen/selectable_radio_btn_padding"
+                    android:text="@string/ten_five_min"
+                    android:textColor="@drawable/rbtn_textcolor_selector"
+                    android:textSize="@dimen/selectable_radio_btn_text_size" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/radio_30min"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/five_dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rbtn_lang_selector"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:padding="@dimen/selectable_radio_btn_padding"
+                    android:text="@string/thirty_min"
+                    android:textColor="@drawable/rbtn_textcolor_selector"
+                    android:textSize="@dimen/selectable_radio_btn_text_size" />
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/radio_1hour"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/five_dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rbtn_lang_selector"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:padding="@dimen/selectable_radio_btn_padding"
+                    android:text="@string/one_hour"
+                    android:textColor="@drawable/rbtn_textcolor_selector"
+                    android:textSize="@dimen/selectable_radio_btn_text_size" />
+            </LinearLayout>
+        </RadioGroup>
+
+        <!--<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="@dimen/ten_dp"
+            android:visibility="visible"
+            android:background="@drawable/bg_input_view">
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="50dp"
+                android:padding="@dimen/ten_dp"
+                android:src="@drawable/ic_date_range_black_24dp"
+                android:tint="@color/colorPrimary" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center_vertical"
+                android:background="@color/colorLine" />
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:text="Select date"
+                android:textColor="@color/colorPrimaryDark" />
+        </LinearLayout>-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_btn"
+                android:text="@string/save"
+                android:textColor="@color/colorWhite" />
+        </LinearLayout>
+    </LinearLayout>
+    <!--</android.support.v7.widget.CardView>-->
+</RelativeLayout>
