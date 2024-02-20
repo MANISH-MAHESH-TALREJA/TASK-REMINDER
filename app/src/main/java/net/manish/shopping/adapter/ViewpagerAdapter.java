@@ -48,7 +48,7 @@ public class ViewpagerAdapter extends PagerAdapter
         StorageReference mStorage = FirebaseStorage.getInstance().getReference();
 
         Glide.with(context)
-                .load(mStorage.child(list.get(position)))
+                .load(list.get(position))
                 .placeholder(context.getDrawable(R.mipmap.ic_launcher))
                 .into(ivPreview);
 

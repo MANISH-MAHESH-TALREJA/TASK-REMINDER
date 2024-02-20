@@ -71,14 +71,13 @@ public class ImageListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         if (object != null) {
 
             StorageReference mStorage = FirebaseStorage.getInstance().getReference();
-
             switch (comeFrom) {
                 case Constants.SCREEN_CREATE_NEW_TODO_ACTIVITY:
                     popupImageFromContentUri(holder, dataSet.get(listPosition));
                     break;
                 case Constants.SCREEN_TODO_DETAILS_ACTIVITY:
                     Glide.with(mContext)
-                            .load(mStorage.child(dataSet.get(listPosition)))
+                            .load(dataSet.get(listPosition))
                             .into(((ViewHolderType1) holder).ivImage);
                     ((ViewHolderType1) holder).ivRemoveImage.setVisibility(View.GONE);
                     break;
@@ -88,7 +87,7 @@ public class ImageListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                         popupImageFromContentUri(holder, dataSet.get(listPosition));
                     } else {
                         Glide.with(mContext)
-                                .load(mStorage.child(dataSet.get(listPosition)))
+                                .load(dataSet.get(listPosition))
                                 .into(((ViewHolderType1) holder).ivImage);
                     }
                     break;

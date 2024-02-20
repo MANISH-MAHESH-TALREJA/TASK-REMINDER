@@ -8,8 +8,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -20,7 +18,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatSpinner;
 
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.FirebaseAuth;
@@ -36,7 +33,6 @@ import com.google.firebase.database.ValueEventListener;
 import net.manish.shopping.R;
 import net.manish.shopping.firebaseutils.FirebaseRealtimeController;
 import net.manish.shopping.listeners.OnCallCompleteListener;
-import net.manish.shopping.model.CountryCodeModel;
 import net.manish.shopping.model.UserModel;
 import net.manish.shopping.realm.RealmController;
 import net.manish.shopping.utils.CommonUtils;
@@ -45,10 +41,9 @@ import net.manish.shopping.utils.Mylogger;
 import net.manish.shopping.utils.SessionManager;
 import net.manish.shopping.utils.Validator;
 
+import com.hbb20.CountryCodePicker;
 import com.wang.avi.AVLoadingIndicatorView;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
@@ -59,12 +54,12 @@ public class SignupActivity extends AppCompatActivity
 
     private final String TAG = SignupActivity.this.getClass().getName();
     private EditText etPhone, etUsername, etPassword, etConfirmPassword, etOTP;
-    private AppCompatSpinner spinnerCountry;
+
+    CountryCodePicker ccp;
     private Button buttonSignup, btnVerify, btnResend;
     private TextView tvLogin, tvTitleOTPView, tvMsgOTPView;
     private CircleButton btnDone;
     private LinearLayout enterOPTView, resendOtpView;
-    private final List<CountryCodeModel> countryList = new ArrayList<>();
 
     private RelativeLayout rltvRootOTPView;
     private ScrollView scrollRootLoginView;
@@ -105,7 +100,6 @@ public class SignupActivity extends AppCompatActivity
     {
 
         getViewReferences();
-        setupSpinner();
         setupClickListeners();
     }
 
@@ -167,33 +161,9 @@ public class SignupActivity extends AppCompatActivity
         scrollRootLoginView = findViewById(R.id.root_login_view);
         avLoadingIndicatorView = findViewById(R.id.progressBar);
         buttonSignup = findViewById(R.id.btn_signup);
-        spinnerCountry = findViewById(R.id.spinner);
-
+        ccp = findViewById(R.id.ccp);
         enterOPTView = findViewById(R.id.lnr_enter_otp_and_verify_view);
         resendOtpView = findViewById(R.id.lnr_resend_otp_view);
-    }
-
-    private void setupSpinner()
-    {
-
-        //setup spinner for country code
-        countryList.clear();
-        countryList.addAll(RealmController.getInstance().getAllCountryCodes());
-        ArrayAdapter<CountryCodeModel> adapter = new ArrayAdapter<>(this, R.layout.item_spinner, countryList);
-        spinnerCountry.setAdapter(adapter);
-
-        spinnerCountry.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
-        {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
-            {
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent)
-            {
-            }
-        });
     }
 
     private void verifyEnteredOTP(final String otp)
@@ -209,9 +179,8 @@ public class SignupActivity extends AppCompatActivity
     {
 
         tvMsgOTPView.setText(getString(R.string.sending_otp));
+        String countryCode = ccp.getSelectedCountryCode();
 
-        CountryCodeModel countryCodeModel = (CountryCodeModel) spinnerCountry.getSelectedItem();
-        String countryCode = countryCodeModel.getCountryCode();
         phoneNumber = countryCode + etPhone.getText().toString();
 
         PhoneAuthOptions options =
@@ -291,21 +260,16 @@ public class SignupActivity extends AppCompatActivity
 
     public void isPhoneRegistered()
     {
-
-
         myDbRef.child(Constants.TABLE_USERS).orderByChild("phone").equalTo(etPhone.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener()
         {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)
             {
-
                 UserModel userModel = dataSnapshot.getValue(UserModel.class);
-
                 if (userModel != null)
                 {
                     //registered
                     etPhone.setError(getString(R.string.phone_registered));
-
                 }
                 else
                 {
@@ -415,7 +379,7 @@ public class SignupActivity extends AppCompatActivity
 
         Mylogger.getInstance().printLog(TAG, "createNewUser() : user Id :  " + userId);
         //save on firebase
-        FirebaseRealtimeController.getInstance().addOrUpdateUser(userModel, userId).setOnCompleteListener(new OnCallCompleteListener()
+        FirebaseRealtimeController.getInstance().addOrUpdateUser(userModel, etPhone.getText().toString()).setOnCompleteListener(new OnCallCompleteListener()
         {
             @Override
             public void onComplete()

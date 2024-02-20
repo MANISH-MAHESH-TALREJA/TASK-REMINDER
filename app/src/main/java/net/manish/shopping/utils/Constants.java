@@ -18,8 +18,8 @@ public class Constants {
     public static final int ITEM_TYPE_TASK = 2;
 
     public static final String COUNTRY_CODE_INDIA = "+91";
-    public static final String COUNTRY_CODE_US = "+1";
-    public static final String COUNTRY_CODE_AUSTRALIA = "+61";
+    public static final String COUNTRY_CODE_US = "+91";
+    public static final String COUNTRY_CODE_AUSTRALIA = "+91";
 
     public static final String KEY_REPEAT_DAY = "repeatDay";
     public static final String KEY_REPEAT_DATE = "repeatDate";

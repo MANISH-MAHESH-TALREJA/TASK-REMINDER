@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_height="match_parent">
 
     <ImageView
         android:layout_width="match_parent"
@@ -81,14 +81,16 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <androidx.appcompat.widget.AppCompatSpinner
-                        android:id="@+id/spinner"
-                        android:layout_width="50dp"
+                    <com.hbb20.CountryCodePicker
+                        android:id="@+id/ccp"
+                        android:layout_width="wrap_content"
                         android:layout_height="@dimen/edittext_height"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginStart="@dimen/ten_five_dp"
-                        android:layout_marginEnd="8dp"
-                        android:background="@color/color_white_transparent" />
+                        app:ccp_countryPreference="IN,US"
+                        app:ccp_showFlag="false"
+                        app:ccp_showFullName="false"
+                        app:ccp_showNameCode="false"
+                        app:ccp_showPhoneCode="false" />
 
                     <View
                         android:layout_width="0.5dp"
@@ -106,13 +108,13 @@
                         android:drawableStart="@drawable/ic_phone_android_black_20dp"
                         android:drawablePadding="@dimen/ten_dp"
                         android:hint="@string/phone"
+                        android:importantForAutofill="no"
                         android:inputType="phone"
-                        android:maxLength="10"
+                        android:maxLength="15"
                         android:paddingStart="@dimen/five_dp"
                         android:paddingEnd="15dp"
                         android:text=""
-                        android:textSize="16sp"
-                        android:importantForAutofill="no" />
+                        android:textSize="16sp" />
                 </LinearLayout>
 
                 <View
@@ -132,27 +134,36 @@
                     android:drawableStart="@drawable/ic_email_outline_20"
                     android:drawablePadding="@dimen/ten_dp"
                     android:hint="@string/email"
+                    android:importantForAutofill="no"
                     android:inputType="textEmailAddress"
                     android:paddingLeft="15dp"
                     android:paddingRight="15dp"
                     android:textSize="16sp"
-                    android:visibility="gone"
-                    android:importantForAutofill="no" />
+                    android:visibility="gone" />
 
-                <EditText
-                    android:id="@+id/et_password"
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/edittext_height"
-                    android:background="#00000000"
-                    android:drawableStart="@drawable/ic_lock_outline_black_24dp"
-                    android:drawablePadding="@dimen/ten_dp"
-                    android:hint="@string/password"
-                    android:inputType="textPassword"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp"
-                    android:text=""
-                    android:textSize="16sp"
-                    android:importantForAutofill="no" />
+                    app:endIconMode="password_toggle"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#00000000"
+                        android:drawableStart="@drawable/ic_lock_outline_black_24dp"
+                        android:drawablePadding="@dimen/ten_dp"
+                        android:hint="@string/password"
+                        android:importantForAutofill="no"
+                        android:inputType="textPassword"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:text=""
+                        android:textSize="16sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
 
                 <View
                     android:layout_width="match_parent"
@@ -163,20 +174,29 @@
                     android:layout_marginBottom="@dimen/five_dp"
                     android:background="@color/colorLine" />
 
-                <EditText
-                    android:id="@+id/et_confirm_password"
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/edittext_height"
-                    android:background="#00000000"
-                    android:drawableStart="@drawable/ic_lock_outline_black_24dp"
-                    android:drawablePadding="@dimen/ten_dp"
-                    android:hint="@string/confirm_password"
-                    android:inputType="textPassword"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp"
-                    android:text=""
-                    android:textSize="16sp"
-                    android:importantForAutofill="no" />
+                    app:endIconMode="password_toggle"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_confirm_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edittext_height"
+                        android:background="#00000000"
+                        android:drawableStart="@drawable/ic_lock_outline_black_24dp"
+                        android:drawablePadding="@dimen/ten_dp"
+                        android:hint="@string/confirm_password"
+                        android:importantForAutofill="no"
+                        android:inputType="textPassword"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:text=""
+                        android:textSize="16sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
 
             </LinearLayout>
 
@@ -248,10 +268,10 @@
                     android:background="@drawable/bg_et_bordered"
                     android:gravity="center"
                     android:hint="@string/write_otp"
+                    android:importantForAutofill="no"
                     android:inputType="number"
                     android:maxLength="6"
-                    android:textColorHint="@color/colorGrayLight"
-                    android:importantForAutofill="no" />
+                    android:textColorHint="@color/colorGrayLight" />
 
                 <Button
                     android:id="@+id/btn_verify"

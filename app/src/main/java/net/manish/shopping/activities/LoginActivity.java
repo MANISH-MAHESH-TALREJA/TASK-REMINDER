@@ -3,6 +3,7 @@ package net.manish.shopping.activities;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -119,6 +120,7 @@ public class LoginActivity extends AppCompatActivity
                 for (DataSnapshot user : dataSnapshot.getChildren())
                 {
                     userModel = user.getValue(UserModel.class);
+                    Log.d(TAG, "onDataChange: " + userModel.getPhone());
                 }
 
                 if (userModel != null)
@@ -149,15 +151,12 @@ public class LoginActivity extends AppCompatActivity
 
     private void verifyPassword(UserModel userModel)
     {
-
         progressDialog.dismiss();
-
         if (userModel.getPassword().equals(etPassword.getText().toString()))
         {
             Mylogger.getInstance().printLog(TAG, "getPhone:-" + userModel.getPhone());
             sessionManager.createLogin(userModel.getUserId(), userModel.getName(), userModel.getPhone());
             startActivity(new Intent(LoginActivity.this, MainActivity.class));
-
             finish();
         }
         else

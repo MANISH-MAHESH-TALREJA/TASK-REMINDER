@@ -37,6 +37,8 @@ import net.manish.shopping.utils.CommonUtils;
 import net.manish.shopping.utils.Constants;
 import net.manish.shopping.utils.Mylogger;
 import net.manish.shopping.utils.Validator;
+
+import com.hbb20.CountryCodePicker;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.ArrayList;
@@ -54,8 +56,9 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private LinearLayout lnrLoginView;
 
-    private AppCompatSpinner spinnerCountry;
     private Button btnVerify;
+
+    CountryCodePicker ccp;
     private Button btnResend;
     private TextView tvLogin, tvTitleOTPView, tvMsgOTPView;
     private CircleButton btnDone;
@@ -90,7 +93,6 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         setupToolbar();
 
         getViewReferences();
-        setupSpinner();
         setOtpCallBack();
         setupClickListeners();
 
@@ -99,7 +101,6 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     private void initViews() {
 
         getViewReferences();
-        setupSpinner();
         setupClickListeners();
 
     }
@@ -194,7 +195,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         etOTP = findViewById(R.id.et_otp);
         buttonGenerateOTP = findViewById(R.id.btn_generate_otp);
         lnrLoginView = findViewById(R.id.lnr_login_view);
-
+        ccp = findViewById(R.id.ccp);
         tvLogin = findViewById(R.id.tv_login);
         tvTitleOTPView = findViewById(R.id.tv_title);
         tvMsgOTPView = findViewById(R.id.tv_msg);
@@ -203,17 +204,6 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         btnResend = findViewById(R.id.btn_resend);
         rltvRootOTPView = findViewById(R.id.root_verify_otp_view);
         avLoadingIndicatorView = findViewById(R.id.progressBar);
-        spinnerCountry = findViewById(R.id.spinner);
-
-    }
-
-    private void setupSpinner() {
-
-        //setup spinner for country code
-        countryList.clear();
-        countryList.addAll(RealmController.getInstance().getAllCountryCodes());
-        ArrayAdapter<CountryCodeModel> adapter = new ArrayAdapter<>(this, R.layout.item_spinner, countryList);
-        spinnerCountry.setAdapter(adapter);
 
     }
 
@@ -221,8 +211,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
         tvMsgOTPView.setText(getString(R.string.sending_otp));
         //for verify otp
-        CountryCodeModel countryCodeModel = (CountryCodeModel) spinnerCountry.getSelectedItem();
-        String countryCode = countryCodeModel.getCountryCode();
+        String countryCode = ccp.getSelectedCountryCode();
         String phoneNumber = countryCode + etPhone.getText().toString();
 
         PhoneAuthOptions options =

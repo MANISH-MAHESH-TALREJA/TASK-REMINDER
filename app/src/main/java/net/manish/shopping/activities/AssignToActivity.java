@@ -133,8 +133,6 @@ public class AssignToActivity extends AppCompatActivity
 
     private void hideKeyboard()
     {
-
-
         try
         {
             InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);

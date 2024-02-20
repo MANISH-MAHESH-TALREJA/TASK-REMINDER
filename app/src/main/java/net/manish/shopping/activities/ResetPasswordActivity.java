@@ -38,6 +38,8 @@ public class ResetPasswordActivity extends AppCompatActivity {
 
     private String userId;
     private String comeFrom;
+    private String phoneNumber;
+
 
     private DatabaseReference myDbRef;
 
@@ -70,6 +72,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
 
         userId = getIntent().getStringExtra(Constants.KEY_USERID);
         comeFrom = getIntent().getStringExtra(Constants.KEY_COME_FROM);
+        phoneNumber = getIntent().getStringExtra(Constants.KEY_PHONE_NUMBER);
     }
 
     private void findViews() {
@@ -146,7 +149,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
         progressDialog.setMessage(getString(R.string.pls_wait));
         progressDialog.show();
 
-        myDbRef.child(Constants.TABLE_USERS).child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
+        myDbRef.child(Constants.TABLE_USERS).child(phoneNumber).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
@@ -192,7 +195,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
         userModel.setFireToken(user.getFireToken());
 
         //save on firebase
-        FirebaseRealtimeController.getInstance().addOrUpdateUser(userModel,userId).setOnCompleteListener(new OnCallCompleteListener() {
+        FirebaseRealtimeController.getInstance().addOrUpdateUser(userModel,phoneNumber).setOnCompleteListener(new OnCallCompleteListener() {
             @Override
             public void onComplete() {
 

@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
         android:layout_width="match_parent"
@@ -23,8 +24,9 @@
         android:layout_alignParentBottom="true"
         android:background="@color/colorAccent"
         android:text="@string/create_new_account"
+        android:textStyle="bold"
         android:textAllCaps="true"
-        android:textColor="@color/colorWhite"
+        android:textColor="#FFFFFF"
         android:textSize="14sp" />
 
     <ScrollView
@@ -82,7 +84,31 @@
                     android:layout_marginBottom="@dimen/five_dp"
                     android:background="@color/colorLine" />
 
-                <EditText
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edittext_height"
+                    app:endIconMode="password_toggle"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edittext_height"
+                        android:background="#00000000"
+                        android:drawableStart="@drawable/ic_lock_outline_black_24dp"
+                        android:drawablePadding="@dimen/ten_dp"
+                        android:hint="@string/password"
+                        android:inputType="textPassword"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:textSize="16sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!--<EditText
                     android:id="@+id/et_password"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/edittext_height"
@@ -93,7 +119,7 @@
                     android:inputType="textPassword"
                     android:paddingLeft="15dp"
                     android:paddingRight="15dp"
-                    android:textSize="16sp" />
+                    android:textSize="16sp" />-->
 
             </LinearLayout>
 
@@ -109,15 +135,14 @@
                 <TextView
                     android:id="@+id/tv_forgot_password"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginBottom="@dimen/ten_five_dp"
                     android:background="?attr/selectableItemBackground"
                     android:clickable="true"
                     android:focusable="true"
-                    android:gravity="right"
-                    android:paddingTop="@dimen/ten_dp"
-                    android:paddingBottom="@dimen/ten_dp"
+                    android:textSize="15sp"
+                    android:gravity="right|center"
                     android:text="@string/forgot_password_que"
                     android:textColor="@color/colorPrimaryDark"
                     tools:ignore="RtlHardcoded" />
