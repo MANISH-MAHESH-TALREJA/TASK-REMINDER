@@ -179,10 +179,10 @@ public class SignupActivity extends AppCompatActivity
     {
 
         tvMsgOTPView.setText(getString(R.string.sending_otp));
-        String countryCode = ccp.getSelectedCountryCode();
+        String countryCode = ccp.getSelectedCountryCodeWithPlus();
 
         phoneNumber = countryCode + etPhone.getText().toString();
-
+        System.out.println("PHONE NUMBER : " + phoneNumber);
         PhoneAuthOptions options =
                 PhoneAuthOptions.newBuilder(mAuth)
                         .setPhoneNumber(phoneNumber) // Phone number to verify

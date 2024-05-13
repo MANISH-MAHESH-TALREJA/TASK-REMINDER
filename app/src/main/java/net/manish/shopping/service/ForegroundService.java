@@ -1,5 +1,7 @@
 package net.manish.shopping.service;
 
+import static android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PLAYBACK;
+
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -7,6 +9,7 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ServiceInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -48,7 +51,13 @@ public class ForegroundService extends Service {
                 .setSmallIcon(R.drawable.logo_transparent)
                 .setContentIntent(pendingIntent)
                 .build();
-        startForeground(Constants.FOREGROUND_NOTIFICATION_ID, notification);
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+            startForeground(Constants.FOREGROUND_NOTIFICATION_ID, notification);
+        } else {
+            startForeground(Constants.FOREGROUND_NOTIFICATION_ID, notification,
+                    ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC);
+        }
+        //startForeground(Constants.FOREGROUND_NOTIFICATION_ID, notification);
         //do heavy work on a background thread
 
         if (todoModel != null) {

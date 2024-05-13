@@ -6,10 +6,17 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-
+        <item name="fontFamily">@font/poppins</item>
         <item name="coordinatorLayoutStyle">@style/Widget.Support.CoordinatorLayout</item>
     </style>
-
+    <style name="Widget.Custom.NavigationView" parent="Widget.Design.NavigationView">
+        <item name="itemIconTint">@color/colorWhite</item>
+        <item name="itemTextColor">#FFFFFF</item>
+        <item name="itemTextAppearance">@style/Style_TextView</item>
+    </style>
+    <style name="Style_TextView">
+        <item name="android:textStyle">bold</item>
+    </style>
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

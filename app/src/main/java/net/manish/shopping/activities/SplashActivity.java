@@ -81,12 +81,12 @@ public class SplashActivity extends AppCompatActivity {
         if (contact == PackageManager.PERMISSION_GRANTED) {
 
 
-            manageFirstTimeAfterInstall();
+            //manageFirstTimeAfterInstall();
             checkLogedInOrNot();
 
         } else {
-            //permision not granted
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS}, MY_PERMISSIONS_REQUEST_READ_CONTACTS);
+            //permission not granted
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS, Manifest.permission.FOREGROUND_SERVICE_DATA_SYNC}, MY_PERMISSIONS_REQUEST_READ_CONTACTS);
         }
 
     }
@@ -112,12 +112,12 @@ public class SplashActivity extends AppCompatActivity {
         }
     }
 
-    private void manageFirstTimeAfterInstall() {
+    /*private void manageFirstTimeAfterInstall() {
 
         if (sessionManager.isFirstTime()) {
             addCountryCodeInLocalDb();
         }
-    }
+    }*/
 
     private void findViews() {
 
@@ -436,7 +436,7 @@ public class SplashActivity extends AppCompatActivity {
 
         if (requestCode == MY_PERMISSIONS_REQUEST_READ_CONTACTS) {
             // permission was granted, yay! do the
-            manageFirstTimeAfterInstall();
+            //manageFirstTimeAfterInstall();
             checkLogedInOrNot();
         }
     }

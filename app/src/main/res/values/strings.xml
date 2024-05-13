@@ -100,7 +100,7 @@
     <string name="logout_msg">Are you sure want to Logout ?</string>
     <string name="phone">Phone</string>
     <string name="otp_sent_msg">OTP has been sent to your mobile number.</string>
-    <string name="sending_otp">We are sending OTP to you mobiler number</string>
+    <string name="sending_otp">We are sending OTP to your mobile number</string>
     <string name="invalid_phone">Invalid phone number</string>
     <string name="goto_login">Go to Login</string>
     <string name="phone_verified">Phone Verified</string>
@@ -152,7 +152,7 @@
     <string name="write_otp">Enter OTP here</string>
     <string name="failed_to_receive_otp">Failed to receive OTP ! Please try to resend code.</string>
     <string name="search_customer">Search customer</string>
-    <string name="current_speech_input_language">Current Speech input language</string>
+    <string name="current_speech_input_language">Current Speech Language</string>
     <string name="english">English</string>
     <string name="change">Change</string>
     <string name="total">Total</string>
