@@ -211,7 +211,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
         tvMsgOTPView.setText(getString(R.string.sending_otp));
         //for verify otp
-        String countryCode = ccp.getSelectedCountryCode();
+        String countryCode = ccp.getSelectedCountryCodeWithPlus();
         String phoneNumber = countryCode + etPhone.getText().toString();
 
         PhoneAuthOptions options =

@@ -6,20 +6,20 @@
     android:background="@color/colorPrimary"
     android:gravity="bottom"
     android:orientation="vertical"
-    android:paddingBottom="10dp"
     android:paddingStart="10dp"
+    android:paddingTop="25dp"
     android:paddingEnd="10dp"
-    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:contentDescription="@string/nav_header_desc"
 
-        app:srcCompat="@drawable/img_person"
-        android:visibility="visible"/>
+        android:visibility="visible"
+        app:srcCompat="@drawable/img_person" />
 
     <TextView
         android:id="@+id/tv_name_header"
@@ -27,14 +27,14 @@
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:text="@string/nav_header_title"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tv_phone_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:text="@string/nav_header_subtitle" />
+        android:text="@string/nav_header_subtitle"
+        android:textSize="13sp" />
 
 </LinearLayout>

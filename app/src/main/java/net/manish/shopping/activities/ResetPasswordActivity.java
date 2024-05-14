@@ -4,9 +4,11 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +20,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
 import net.manish.shopping.R;
 import net.manish.shopping.firebaseutils.FirebaseRealtimeController;
 import net.manish.shopping.listeners.OnCallCompleteListener;
@@ -29,7 +32,8 @@ import net.manish.shopping.utils.Validator;
 
 import java.util.Objects;
 
-public class ResetPasswordActivity extends AppCompatActivity {
+public class ResetPasswordActivity extends AppCompatActivity
+{
 
     private Toolbar toolbar;
     private EditText etOldPassword, etPassword, etConfirmPassword;
@@ -38,13 +42,14 @@ public class ResetPasswordActivity extends AppCompatActivity {
 
     private String userId;
     private String comeFrom;
-    private String phoneNumber;
+    // private String phoneNumber;
 
 
     private DatabaseReference myDbRef;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_reset_password);
@@ -61,21 +66,26 @@ public class ResetPasswordActivity extends AppCompatActivity {
 
     }
 
-    private void manageScreen() {
-        if (comeFrom.equals(Constants.SCREEN_FORGOT_PASSWORD)) {
+    private void manageScreen()
+    {
+        if (comeFrom.equals(Constants.SCREEN_FORGOT_PASSWORD))
+        {
             etOldPassword.setVisibility(View.GONE);
             viewOldLine.setVisibility(View.GONE);
+            findViewById(R.id.et_old_password_eyes).setVisibility(View.GONE);
         }
     }
 
-    private void getIntentValues() {
+    private void getIntentValues()
+    {
 
         userId = getIntent().getStringExtra(Constants.KEY_USERID);
         comeFrom = getIntent().getStringExtra(Constants.KEY_COME_FROM);
-        phoneNumber = getIntent().getStringExtra(Constants.KEY_PHONE_NUMBER);
+        // phoneNumber = getIntent().getStringExtra(Constants.KEY_PHONE_NUMBER);
     }
 
-    private void findViews() {
+    private void findViews()
+    {
 
         progressDialog = new ProgressDialog(this);
 
@@ -86,30 +96,37 @@ public class ResetPasswordActivity extends AppCompatActivity {
         etConfirmPassword = findViewById(R.id.et_confirm_password);
 
         Button btnReset = findViewById(R.id.btn_reset);
-        btnReset.setOnClickListener(v -> {
-            if (ConnectionChecker.isInternetAvailable(ResetPasswordActivity.this)) {
-                if (isValid()) {
+        btnReset.setOnClickListener(v ->
+        {
+            if (ConnectionChecker.isInternetAvailable(ResetPasswordActivity.this))
+            {
+                if (isValid())
+                {
                     saveNewPassword();
                 }
-            } else {
+            } else
+            {
                 Toast.makeText(ResetPasswordActivity.this, "Internet not available !", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    private void setupToolbar() {
+    private void setupToolbar()
+    {
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(getString(R.string.reset_password));
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
 
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == android.R.id.home) {
+        if (id == android.R.id.home)
+        {
             onBackPressed();
         }
 
@@ -117,26 +134,32 @@ public class ResetPasswordActivity extends AppCompatActivity {
     }
 
 
-    public boolean isValid() {
+    public boolean isValid()
+    {
 
         String oldPass = etOldPassword.getText().toString();
 
-        if (!comeFrom.equals(Constants.SCREEN_FORGOT_PASSWORD)) {
-            if (oldPass.isEmpty()) {
+        if (!comeFrom.equals(Constants.SCREEN_FORGOT_PASSWORD))
+        {
+            if (oldPass.isEmpty())
+            {
                 etOldPassword.setError(getResources().getString(R.string.password_required));
                 return false;
             }
         }
-        if (etPassword.getText().toString().isEmpty()) {
+        if (etPassword.getText().toString().isEmpty())
+        {
             etPassword.setError(getResources().getString(R.string.password_required));
             return false;
         }
-        if (!Validator.isValidPassword(etPassword.getText().toString())) {
+        if (!Validator.isValidPassword(etPassword.getText().toString()))
+        {
             etPassword.setError(getResources().getString(R.string.provide_valid_password));
             return false;
         }
 
-        if (!etPassword.getText().toString().equals(etConfirmPassword.getText().toString())) {
+        if (!etPassword.getText().toString().equals(etConfirmPassword.getText().toString()))
+        {
             etConfirmPassword.setError(getResources().getString(R.string.password_not_matched));
             return false;
         }
@@ -144,31 +167,43 @@ public class ResetPasswordActivity extends AppCompatActivity {
         return true;
     }
 
-    public void saveNewPassword() {
+    public void saveNewPassword()
+    {
 
         progressDialog.setMessage(getString(R.string.pls_wait));
         progressDialog.show();
 
-        myDbRef.child(Constants.TABLE_USERS).child(phoneNumber).addListenerForSingleValueEvent(new ValueEventListener() {
+        myDbRef.child(Constants.TABLE_USERS).child(userId).addListenerForSingleValueEvent(new ValueEventListener()
+        {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+            {
 
                 UserModel userModel = dataSnapshot.getValue(UserModel.class);
 
-                if (userModel != null) {
+                if (userModel != null)
+                {
                     //registered
-                    if (comeFrom.equals(Constants.SCREEN_FORGOT_PASSWORD)) {
+                    if (comeFrom.equals(Constants.SCREEN_FORGOT_PASSWORD))
+                    {
                         createNewUser(userModel);
-                    }else if (comeFrom.equals(Constants.SCREEN_SETTINGS)) {
-                        if (etOldPassword.getText().toString().equals(userModel.getPassword())){
+                    }
+
+                    else if (comeFrom.equals(Constants.SCREEN_SETTINGS))
+                    {
+                        if (etOldPassword.getText().toString().equals(userModel.getPassword()))
+                        {
                             createNewUser(userModel);
-                        }else {
+                        }
+                        else
+                        {
                             etOldPassword.setError(getString(R.string.wrong_old_password));
                             progressDialog.dismiss();
                         }
                     }
 
-                } else {
+                } else
+                {
                     //not registered
                     progressDialog.dismiss();
                     Toast.makeText(ResetPasswordActivity.this, getString(R.string.account_not_found), Toast.LENGTH_SHORT).show();
@@ -176,7 +211,8 @@ public class ResetPasswordActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+            public void onCancelled(@NonNull DatabaseError databaseError)
+            {
 
             }
         });
@@ -184,7 +220,8 @@ public class ResetPasswordActivity extends AppCompatActivity {
 
     }
 
-    private void createNewUser(UserModel user) {
+    private void createNewUser(UserModel user)
+    {
 
         UserModel userModel = new UserModel();
         userModel.setId(getNextId());
@@ -195,22 +232,27 @@ public class ResetPasswordActivity extends AppCompatActivity {
         userModel.setFireToken(user.getFireToken());
 
         //save on firebase
-        FirebaseRealtimeController.getInstance().addOrUpdateUser(userModel,phoneNumber).setOnCompleteListener(new OnCallCompleteListener() {
+        FirebaseRealtimeController.getInstance().addOrUpdateUser(userModel, userId).setOnCompleteListener(new OnCallCompleteListener()
+        {
             @Override
-            public void onComplete() {
+            public void onComplete()
+            {
 
                 progressDialog.setMessage(getString(R.string.transferring_to_dashboard));
                 Toast.makeText(ResetPasswordActivity.this, getString(R.string.password_reset_success), Toast.LENGTH_SHORT).show();
-                if (comeFrom.equals(Constants.SCREEN_FORGOT_PASSWORD)) {
+                if (comeFrom.equals(Constants.SCREEN_FORGOT_PASSWORD))
+                {
                     gotoLoginScreen();
-                }else {
+                } else
+                {
                     progressDialog.dismiss();
                     onBackPressed();
                 }
             }
 
             @Override
-            public void onFailed() {
+            public void onFailed()
+            {
                 progressDialog.dismiss();
                 Toast.makeText(ResetPasswordActivity.this, getString(R.string.something_wrong), Toast.LENGTH_SHORT).show();
             }
@@ -218,23 +260,31 @@ public class ResetPasswordActivity extends AppCompatActivity {
 
     }
 
-    public int getNextId() {
-        try {
+    public int getNextId()
+    {
+        try
+        {
             Number number = RealmController.getInstance().getRealm().where(UserModel.class).max("id");
-            if (number != null) {
+            if (number != null)
+            {
                 return number.intValue() + 1;
-            } else {
+            } else
+            {
                 return 1;
             }
-        } catch (ArrayIndexOutOfBoundsException e) {
+        } catch (ArrayIndexOutOfBoundsException e)
+        {
             return 0;
         }
     }
 
-    private void gotoLoginScreen() {
+    private void gotoLoginScreen()
+    {
 
-        new Handler().postDelayed(() -> {
-            if (progressDialog != null) {
+        new Handler().postDelayed(() ->
+        {
+            if (progressDialog != null)
+            {
                 progressDialog.dismiss();
             }
 

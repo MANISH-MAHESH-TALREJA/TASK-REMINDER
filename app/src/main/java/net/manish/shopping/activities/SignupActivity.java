@@ -379,7 +379,7 @@ public class SignupActivity extends AppCompatActivity
 
         Mylogger.getInstance().printLog(TAG, "createNewUser() : user Id :  " + userId);
         //save on firebase
-        FirebaseRealtimeController.getInstance().addOrUpdateUser(userModel, etPhone.getText().toString()).setOnCompleteListener(new OnCallCompleteListener()
+        FirebaseRealtimeController.getInstance().addOrUpdateUser(userModel, userId).setOnCompleteListener(new OnCallCompleteListener()
         {
             @Override
             public void onComplete()

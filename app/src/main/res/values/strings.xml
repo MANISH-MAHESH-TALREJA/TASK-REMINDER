@@ -83,7 +83,7 @@
     <string name="completed">Completed</string>
     <string name="task_list">Task list</string>
     <string name="task_not_available">You have no task yet !</string>
-    <string name="task_reminder_not_available">You have not any task or reminder yet !</string>
+    <string name="task_reminder_not_available">You don\'t have any task reminders yet!!</string>
     <string name="update">Update</string>
     <string name="reopen">Reopen</string>
     <string name="password_not_matched">Password not matched !</string>

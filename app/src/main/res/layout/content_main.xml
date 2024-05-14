@@ -18,6 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_centerVertical="true"
         android:gravity="center"
         android:visibility="visible"
         android:layout_marginTop="@dimen/fab_margin"
