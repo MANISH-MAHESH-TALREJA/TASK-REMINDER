@@ -3,6 +3,7 @@ plugins {
     id 'com.google.gms.google-services'
     id 'com.google.firebase.crashlytics'
     id 'realm-android'
+    id 'org.jetbrains.kotlin.android'
 }
 
 android {
@@ -34,12 +35,13 @@ android {
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.11.0'
+    implementation 'com.google.android.material:material:1.12.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.activity:activity:1.9.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-    implementation platform('com.google.firebase:firebase-bom:32.1.1')
+    implementation platform('com.google.firebase:firebase-bom:33.0.0')
 
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
@@ -72,14 +74,14 @@ dependencies {
 
     //FIREBASE LIBRARIES
     implementation 'com.firebaseui:firebase-ui-auth:8.0.2'
-    implementation 'com.google.firebase:firebase-database:20.3.0'
-    implementation 'com.google.firebase:firebase-storage:20.3.0'
-    implementation 'com.google.firebase:firebase-messaging:23.4.1'
+    implementation 'com.google.firebase:firebase-database:21.0.0'
+    implementation 'com.google.firebase:firebase-storage:21.0.0'
+    implementation 'com.google.firebase:firebase-messaging:24.0.0'
     implementation 'com.google.firebase:firebase-core:21.1.1'
-    implementation 'com.google.firebase:firebase-crashlytics:18.6.2'
+    implementation 'com.google.firebase:firebase-crashlytics:19.0.0'
 
     // ADD THE FIREBASE CRASHLYTICS DATABASE
-    implementation 'com.google.firebase:firebase-analytics:21.5.1'
+    implementation 'com.google.firebase:firebase-analytics:22.0.0'
 
     // TO AVOID io.reactivex ERROR WHILE SAVING DATA IN FIREBASE REALTIME DATABASE
     implementation "io.reactivex.rxjava2:rxjava:2.2.21"
@@ -89,6 +91,8 @@ dependencies {
 
     //FOR ZOOM IMAGE VIEW
     implementation 'com.bogdwellers:pinchtozoom:0.1'
+
+    implementation 'io.github.h07000223:flycoTabLayout:3.0.0'
 
     implementation 'androidx.multidex:multidex:2.0.1'
 

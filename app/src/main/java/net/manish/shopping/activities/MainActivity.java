@@ -69,6 +69,7 @@ import net.manish.shopping.adapter.TodoListAdapter;
 import net.manish.shopping.firebaseutils.FirebaseRealtimeController;
 import net.manish.shopping.fragments.DialogFragmentFinishTask;
 import net.manish.shopping.fragments.FilterDialogFragmentBottomSheet;
+import net.manish.shopping.fragments.SnoozeDialogFragmentBottomSheet;
 import net.manish.shopping.helper.RecyclerViewClickListener;
 import net.manish.shopping.helper.RecyclerViewTouchListener;
 import net.manish.shopping.listeners.OnCallCompleteListener;
@@ -670,6 +671,18 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    private void gotoResetPassword(String userId){
+
+        Intent i = new Intent(this,ResetPasswordActivity.class);
+        i.putExtra(Constants.KEY_USERID,userId);
+        i.putExtra(Constants.KEY_PHONE_NUMBER, sessionManager.getPhoneNumber());
+        i.putExtra(Constants.KEY_COME_FROM,Constants.SCREEN_SETTINGS);
+        startActivity(i);
+
+    }
+
+
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -678,21 +691,30 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_new) {
             startActivity(new Intent(MainActivity.this, CreateNewTodoActivity.class));
-        } else if (id == R.id.nav_manage) {
-            startActivity(new Intent(MainActivity.this, SettingsActivity.class));
+        } else if (id == R.id.nav_change_password) {
+            gotoResetPassword(sessionManager.getUserId());
         } else if (id == R.id.nav_task_list) {
             startActivity(new Intent(MainActivity.this, TaskListActivity.class));
         } else if (id == R.id.nav_my_contacts) {
             startActivity(new Intent(MainActivity.this, MyContactsActivityWithTabs.class));
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_logout) {
+        } else if (id == R.id.nav_change_snooze_time) {
+            SnoozeDialogFragmentBottomSheet snoozeDialog = new SnoozeDialogFragmentBottomSheet(this);
+            snoozeDialog.show(getSupportFragmentManager(), "");
+            // snoozeDialog.setOnTimeSelectListener(this::setSnoozeValue);
+        }
+        else if(id == R.id.nav_change_notification_tone)
+        {
+            Intent i = new Intent(this, SelectRingtoneActivity.class);
+            startActivity(i);
+        }
+        else if (id == R.id.nav_logout) {
             logoutAlert();
         }
 
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 
     private void setOnRealDataChangeListeners() {
 

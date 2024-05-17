@@ -27,12 +27,12 @@ public class SnoozeDialogFragmentBottomSheet extends BottomSheetDialogFragment i
     private SessionManager sessionManager;
     private String newSnooze = "5";
 
-    private OnTimeSelectListener onTimeSelectListener;
+    // private OnTimeSelectListener onTimeSelectListener;
 
-    public void setOnTimeSelectListener(OnTimeSelectListener onTimeSelectListener) {
+    /*public void setOnTimeSelectListener(OnTimeSelectListener onTimeSelectListener) {
         this.onTimeSelectListener = onTimeSelectListener;
     }
-
+*/
     @SuppressLint("ValidFragment")
     public SnoozeDialogFragmentBottomSheet(Context context) {
         this.sessionManager = new SessionManager(context);
@@ -87,7 +87,7 @@ public class SnoozeDialogFragmentBottomSheet extends BottomSheetDialogFragment i
         int id = v.getId();
         if (id == R.id.btn_save) {
             sessionManager.setSnoozeTime(newSnooze);
-            onTimeSelectListener.onTimeSelected(sessionManager.getSnoozeTime());
+            // onTimeSelectListener.onTimeSelected(sessionManager.getSnoozeTime());
             dismiss();
         } else if (id == R.id.iv_close) {
             dismiss();

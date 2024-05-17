@@ -37,6 +37,7 @@
             android:layout_height="wrap_content"
             android:text="@string/task_reminder_not_available"
             android:textSize="18sp"
+            android:gravity="center"
             android:textColor="@color/colorGray"/>
     </LinearLayout>
 

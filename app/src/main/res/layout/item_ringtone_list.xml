@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/lnr_root"
     android:layout_width="match_parent"
+
     android:layout_height="wrap_content"
     android:background="@drawable/bg_et"
     android:orientation="vertical">
@@ -17,6 +18,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingHorizontal="5dp"
         android:paddingTop="@dimen/five_dp"
         android:paddingBottom="@dimen/five_dp">
 
@@ -26,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_margin="@dimen/five_dp"
-            android:src="@drawable/ic_music_note_black_24dp"
+            android:src="@drawable/bell"
             app:tint="@color/colorPrimary"
             tools:ignore="ContentDescription" />
 

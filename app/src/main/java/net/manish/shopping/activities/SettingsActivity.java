@@ -71,12 +71,10 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         if (id == R.id.tv_change_password) {
             gotoResetPassword(sessionManager.getUserId());
         } else if (id == R.id.tv_change_ringtone) {
-            Intent i = new Intent(this, SelectRingtoneActivity.class);
-            startActivity(i);
         } else if (id == R.id.tv_change_snooze_time) {
             SnoozeDialogFragmentBottomSheet snoozeDialog = new SnoozeDialogFragmentBottomSheet(SettingsActivity.this);
             snoozeDialog.show(getSupportFragmentManager(), "");
-            snoozeDialog.setOnTimeSelectListener(this::setSnoozeValue);
+            //snoozeDialog.setOnTimeSelectListener(this::setSnoozeValue);
         }
     }
 

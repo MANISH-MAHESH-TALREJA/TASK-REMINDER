@@ -8,7 +8,7 @@
     android:layout_marginStart="@dimen/five_dp"
     android:layout_marginBottom="@dimen/five_dp"
     android:layout_marginEnd="@dimen/ten_dp"
-    app:cardCornerRadius="@dimen/five_dp">
+    app:cardCornerRadius="10dp">
 
     <RelativeLayout
         android:id="@+id/rltv_root"
