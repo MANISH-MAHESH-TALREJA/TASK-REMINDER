@@ -50,13 +50,13 @@
 
             <item
                 android:id="@+id/nav_share"
-                android:icon="@drawable/share__1_"
+                android:icon="@drawable/share_icon"
                 android:title="Share App"
                 android:visible="true"/>
 
             <item
                 android:id="@+id/nav_privacy_policy"
-                android:icon="@drawable/policy_privacy__1_"
+                android:icon="@drawable/policy_privacy_icon"
                 android:title="Privacy Policy"
                 android:visible="true"/>
 
