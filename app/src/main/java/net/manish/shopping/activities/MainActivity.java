@@ -436,7 +436,7 @@ public class MainActivity extends AppCompatActivity
 
     protected void setupRecyclerView() {
 
-        mRecyclerView.setHasFixedSize(true);
+        //mRecyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(linearLayoutManager);
         adapter = new TodoListAdapter(list, this);

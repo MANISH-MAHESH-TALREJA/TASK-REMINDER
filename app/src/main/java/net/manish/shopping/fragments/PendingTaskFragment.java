@@ -140,7 +140,7 @@ public class PendingTaskFragment extends Fragment {
         lnrEmpty = view.findViewById(R.id.lnr_empty);
 
         //setup recycler view
-        recyclerview.setHasFixedSize(true);
+        //recyclerview.setHasFixedSize(true);
         recyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
         adapter = new TodoListAdapter(taskList, getActivity());
         recyclerview.setAdapter(adapter);

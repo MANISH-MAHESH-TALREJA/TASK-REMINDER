@@ -86,7 +86,7 @@ public class SplashActivity extends AppCompatActivity {
 
         } else {
             //permission not granted
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS, Manifest.permission.FOREGROUND_SERVICE_DATA_SYNC}, MY_PERMISSIONS_REQUEST_READ_CONTACTS);
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS/*, Manifest.permission.FOREGROUND_SERVICE_DATA_SYNC*/}, MY_PERMISSIONS_REQUEST_READ_CONTACTS);
         }
 
     }

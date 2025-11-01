@@ -8,21 +8,21 @@ plugins {
 
 android {
     namespace 'net.manish.shopping'
-    compileSdk 34
+    compileSdk 36
 
     defaultConfig {
         applicationId "net.manish.shopping"
         minSdk 24
-        targetSdk 34
-        versionCode 1
-        versionName "1.0"
+        targetSdk 36
+        versionCode 10
+        versionName "8.0"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }

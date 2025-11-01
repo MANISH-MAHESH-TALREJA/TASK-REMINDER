@@ -83,7 +83,7 @@ public class ReminderActivity extends AppCompatActivity {
     }
 
     private void setupRecyclerView() {
-        recyclerView.setHasFixedSize(true);
+        //recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         ReminderListAdapter adapter = new ReminderListAdapter(list);
         recyclerView.setAdapter(adapter);

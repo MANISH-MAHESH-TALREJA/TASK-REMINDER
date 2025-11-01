@@ -399,7 +399,7 @@ public class EditTodoActivity extends AppCompatActivity implements View.OnClickL
 
     protected void setupRecyclerViewForImages() {
 
-        recyclerViewImageList.setHasFixedSize(true);
+        //recyclerViewImageList.setHasFixedSize(true);
         recyclerViewImageList.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
         imageAdapter = new ImageListAdapter(imageUriList, this, Constants.SCREEN_EDIT_TODO_ACTIVITY);

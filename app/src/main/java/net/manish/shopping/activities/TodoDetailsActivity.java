@@ -336,7 +336,7 @@ public class TodoDetailsActivity extends AppCompatActivity
     protected void setupRecyclerView()
     {
 
-        mRecyclerView.setHasFixedSize(true);
+        //mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new CommentListAdapter(commentList, this);
         mRecyclerView.setAdapter(adapter);
@@ -360,7 +360,7 @@ public class TodoDetailsActivity extends AppCompatActivity
     protected void setupRecyclerViewForImages()
     {
 
-        recyclerViewImageList.setHasFixedSize(true);
+        //recyclerViewImageList.setHasFixedSize(true);
         recyclerViewImageList.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
         imageAdapter = new ImageListAdapter(imageURLList, this, Constants.SCREEN_TODO_DETAILS_ACTIVITY);

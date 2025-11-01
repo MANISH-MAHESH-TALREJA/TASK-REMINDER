@@ -78,7 +78,7 @@ public class SelectRingtoneActivity extends AppCompatActivity {
     }
 
     private void setupRecyclerView() {
-        recyclerView.setHasFixedSize(true);
+        //recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         adapter = new RingtoneListAdapter(defaultsNotificationList, this);

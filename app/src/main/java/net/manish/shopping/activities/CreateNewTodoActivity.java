@@ -289,7 +289,7 @@ public class CreateNewTodoActivity extends AppCompatActivity implements View.OnC
 
     private void setupRecyclerView() {
 
-        recyclerViewImageList.setHasFixedSize(true);
+        //recyclerViewImageList.setHasFixedSize(true);
         recyclerViewImageList.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
         adapter = new ImageListAdapter(imageUriList, this, Constants.SCREEN_CREATE_NEW_TODO_ACTIVITY);
